@@ -1,7 +1,5 @@
-import { Product } from './product.js'
 import { promises as fs } from 'fs'
-
-
+import { Product } from './product.js'
 
 export class ProductManager {
     constructor(path) {
@@ -15,6 +13,7 @@ export class ProductManager {
         let products = JSON.parse(await fs.readFile(this.path, 'utf-8'));
         //this.products = JSON.parse(this.path, 'utf-8'))
         console.log(products);
+        return(products);
     }
 
     async addProduct(product) {
@@ -37,6 +36,7 @@ export class ProductManager {
         const buscado = products.find(producto => producto.id === id)
         if (buscado) {
             console.log(buscado)
+            return(buscado)
         } else {
             console.log("Producto no existe")
         }
@@ -79,9 +79,6 @@ export class ProductManager {
     
 }
 
-const productManager = new ProductManager('./src/prueba.txt')
-//const product1 = new Product("producto prueba", "Este es un producto prueba", 200, "Sin imagen", "abc123", 25)
-//const product2 = new Product("producto prueba", "Este es un producto prueba", 220, "Sin imagen", "abc124", 20)
 //productManager.getProducts();
 //productManager.addProduct(product1)
 //productManager.addProduct(product2)
@@ -95,3 +92,4 @@ const productManager = new ProductManager('./src/prueba.txt')
 //productManager.getProducts();
 //productManager.deleteProduct(2)
 //console.log(productManager.getProducts())
+ 

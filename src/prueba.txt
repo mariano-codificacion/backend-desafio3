@@ -1,1 +1,1 @@
-[]
+[{"title":"cafe","description":"Este es un producto prueba","price":220,"thumbnail":"Sin imagen","code":"abc132","stock":20,"id":10}]]}]
