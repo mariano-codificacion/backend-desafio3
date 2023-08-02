@@ -1,5 +1,5 @@
 import { promises as fs } from 'fs'
-import { Product } from './product.js'
+
 
 export class ProductManager {
     constructor(path) {

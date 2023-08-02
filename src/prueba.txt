@@ -1,1 +1,52 @@
-[{"title":"cafe","description":"Este es un producto prueba","price":220,"thumbnail":"Sin imagen","code":"abc132","stock":20,"id":10}]]}]
+[
+    {
+        nombre: "Lentejas",
+        id: 1,
+        categoria: "Legumbres"
+    },
+    {
+        nombre: "Mani",
+        id: 2,
+        categoria: "Snack"
+    },
+    {
+        nombre: "Queso",
+        id: 3,
+        categoria: "Lacteos"
+    },
+    {
+        nombre: "Yogurt",
+        id: 4,
+        categoria: "Lacteos"
+    },
+      {
+        nombre: "Maiz",
+        id: 5,
+        categoria: "Legumbres"
+    },
+    {
+        nombre: "Papitas",
+        id: 6,
+        categoria: "Snack"
+    },
+    {
+        nombre: "Palitos",
+        id: 7,
+        categoria: "Snack"
+    },
+    {
+        nombre: "Porotos",
+        id: 8,
+        categoria: "Legumbres"
+    },
+      {
+        nombre: "Leche",
+        id: 9,
+        categoria: "Lacteos"
+    },
+    {
+        nombre: "Costilla",
+        id: 10,
+        categoria: "Asado"
+    }
+]
