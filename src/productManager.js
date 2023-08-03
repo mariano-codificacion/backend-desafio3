@@ -12,7 +12,7 @@ export class ProductManager {
     async getProducts() {
         let products = JSON.parse(await fs.readFile(this.path, 'utf-8'));
         //this.products = JSON.parse(this.path, 'utf-8'))
-        console.log(products);
+        //console.log(products);
         return(products);
     }
 
@@ -35,7 +35,6 @@ export class ProductManager {
         let products = JSON.parse(await fs.readFile(this.path, 'utf-8'));
         const buscado = products.find(producto => producto.id === id)
         if (buscado) {
-            console.log(buscado)
             return(buscado)
         } else {
             console.log("Producto no existe")
@@ -78,7 +77,7 @@ export class ProductManager {
     }
     
 }
-
+//export default ProductManager
 //productManager.getProducts();
 //productManager.addProduct(product1)
 //productManager.addProduct(product2)
