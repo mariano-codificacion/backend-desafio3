@@ -13,7 +13,7 @@ export class ProductManager {
         let products = JSON.parse(await fs.readFile(this.path, 'utf-8'));
         //this.products = JSON.parse(this.path, 'utf-8'))
         //console.log(products);
-        return(products);
+        return products;
     }
 
     async addProduct(product) {
@@ -27,7 +27,7 @@ export class ProductManager {
         products.push(product)
         //Parsearlo y guardar el array modificado
         await fs.writeFile(this.path, JSON.stringify(products))
-        console.log (products)
+        return ("/n", products)
     }
 
     async getProductById(id) {
@@ -77,6 +77,33 @@ export class ProductManager {
     }
     
 }
+export class Product {
+    constructor(title, description, price, thumbnail, code, stock) {
+        this.title = title
+        this.description = description
+        this.price = price
+        this.thumbnail = thumbnail
+        this.code = code
+        this.stock = stock
+        this.id = Product.incrementarID()
+    }
+    //static significa metodo de clase
+    static incrementarID() {
+        if (this.idIncrement) { //Atributo de la clase. Si no existe, lo creo. Si existe, lo aumento en 1
+            this.idIncrement++ //Si existe, lo aumento en uno
+        } else {
+            this.idIncrement = 1 //Valor inicial
+        }
+        return this.idIncrement
+    }
+}
+//const productManager = new ProductManager('./prueba.json')
+//const product1 = new Product("producto prueba", "Este es un producto prueba", 200, "Sin imagen", "abc123", 25)
+//productManager.addProduct(product1)
+//const product2 = new Product("producto prueba", "Este es un producto prueba", 220, "Sin imagen", "abc124", 20)
+//productManager.addProduct(product2)
+//const product3 = new Product("producto prueba", "Este es un producto prueba", 220, "Sin imagen", "abc125", 20)
+//productManager.addProduct(product3)
 //export default ProductManager
 //productManager.getProducts();
 //productManager.addProduct(product1)

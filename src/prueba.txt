@@ -1,1 +1,0 @@
-[{nombre: "Lentejas", id: 1, categoria: "Legumbres"}]

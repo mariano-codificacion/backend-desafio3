@@ -1,7 +1,7 @@
 
 import express from 'express'
 import { ProductManager } from './productManager.js'
-
+import { Product } from './productManager.js'
 //app va a poder ejecutar todos los metodos de express
 const app = express()
 
@@ -10,29 +10,36 @@ const PORT = 4000
 //Poder ejecutar queries complejas
 app.use(express.urlencoded({ extended: true }))
 
-const productManager = new ProductManager('./prueba.txt')
+const productManager = new ProductManager('./src/prueba.json')
+const product1 = new Product("producto prueba", "Este es un producto prueba", 200, "Sin imagen", "abc123", 25)
+productManager.addProduct(product1)
+const product2 = new Product("producto prueba", "Este es un producto prueba", 220, "Sin imagen", "abc124", 20)
+productManager.addProduct(product2)
+const product3 = new Product("producto prueba", "Este es un producto prueba", 220, "Sin imagen", "abc125", 20)
+productManager.addProduct(product3)
 
 app.get('/', (req, res) => {
     res.send("Hola desde el sur")
 })
 
 app.get('/productos', async (req, res) => {
-    const products = productManager.getProducts();
-    //const { categoria } = req.query
-    //const prods = products.filter(prod => prod.categoria === categoria)
-    res.send(products)
+    const { limite } = req.query
+    const products = await productManager.getProducts();
+    if (limite) 
+    res.send(products.slice(0, limite)) 
+    res.send(products);
 })
 //res.send() actua como un return implicito
 
-/*app.get('/productos/:id', (req, res) => {
+app.get('/productos/:id', async (req, res) => {
     
-    const prod = productManager.getProductById(parseInt(req.params.id));
+    const prod = await productManager.getProductById(parseInt(req.params.id));
     //const prod = products.find(prod => prod.id === parseInt(req.params.id))
     if (prod)
         res.send(prod)
     res.send("Producto no encontrado")
 })
-*/
+
 
 //Ruta 404 es la ultima que se define
 app.get('*', (req, res) => {
