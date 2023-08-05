@@ -1,12 +1,10 @@
-import { promises as fs } from 'fs'
 
+import { promises as fs } from 'fs'
 
 export class ProductManager {
     constructor(path) {
-       
         this.path = path;
     }
-
 
     //Retornar todos los productos
     async getProducts() {
@@ -118,4 +116,4 @@ export class Product {
 //productManager.getProducts();
 //productManager.deleteProduct(2)
 //console.log(productManager.getProducts())
- 
+
